@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="lamp">
+
+</div>
+<button id="switch-button" onclick="clickSwitch()">Bat</button>
+<script src="js/ElectricLamp.js"></script>
+<script src="js/SwitchButton.js"></script>
+<script>
+    let lamp = new ElectricLamp();
+    let switchButton = new SwitchButton();
+    switchButton.connectToLamp(lamp);
+
+    function clickSwitch() {
+        if (!lamp.getStatus()) {
+            switchButton.switchOn();
+            document.getElementById('lamp').style.backgroundColor = 'yellow';
+            document.getElementById('switch-button').innerHTML = 'tat';
+        } else {
+            switchButton.switchOff();
+            document.getElementById('lamp').style.backgroundColor = 'darkgray'
+            document.getElementById('switch-button').innerHTML = 'bat';
+        }
+
+    }
+</script>
+</body>
+</html>
